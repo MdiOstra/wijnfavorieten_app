@@ -1,0 +1,57 @@
+
+.table a {
+    text-decoration: none; 
+}
+
+.content-wrapper {
+    padding-top: 110px; 
+    padding-bottom: 60px;
+}
+
+.navbar-nav .nav-link,
+.btn {
+    padding: 4px 12px; 
+    font-size: 20px; 
+}
+
+.btn-group .btn-toevoegen {
+    align-items: center; 
+}
+
+.icon-bold {
+    font-weight: bold;
+    font-size: 1.5em; 
+}
+
+.icon-hover:hover .bi-info-circle {
+    color: grey;
+}
+
+.table-outer-border > thead > tr > th,
+.table-outer-border > tbody > tr > td {
+    border: none; /* Verwijder de rand van de binnenste elementen */
+}
+
+.table-outer-border {
+    border: 1px solid grey; /* Add a border to the outside of the table */
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 
+        0 5px 20px 5px rgba(0, 0, 0, 0.5), /* Bottom shadow */
+        0 -5px 20px 5px rgba(0, 0, 0, 0.5), /* Top shadow */
+        5px 0 20px 5px rgba(0, 0, 0, 0.5), /* Right shadow */
+        -5px 0 20px 5px rgba(0, 0, 0, 0.5); /* Left shadow */
+    border-radius: 5px;
+}
+
+.alert-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Zorg ervoor dat de alert-container op de overlay staat */
+}
+
+ #fileInput {
+    display: none
+}
