@@ -184,9 +184,6 @@ if (isset($message)) {
              <div class='btn-group'>
                 <?php
                 echo "<a href='index.php' class='btn btn-md btn-dark me-2 rounded-pill'><i class='fa-solid fa-arrow-rotate-left'></i></a>";
-                echo "<button type='submit' name='delete' class='btn btn-md btn-dark me-2 rounded-pill' onclick=\"return confirm('Weet je zeker dat je deze wijn wilt verwijderen?')\">";
-                echo "<i class='fa-solid fa-trash'></i>";
-                echo "</button>";
                 echo "<a href='logout.php' class='btn btn-md btn-dark me-2 rounded-pill' onclick=\"return confirm('Weet je zeker dat je wilt uitloggen?')\">";
                 echo "<i class='fa-solid fa-right-from-bracket'></i>";
                 echo "</a>";
