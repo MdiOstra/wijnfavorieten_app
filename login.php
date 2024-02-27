@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
 
         $_SESSION["loggedInUser"] = $result["id"]; 
-        header("Location: index.php");
+        header("Location: index.php?kleur=rood");
         exit();
     } else {
         $errorMessage = "Onjuiste gebruikersnaam/wachtwoord combinatie";
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>WIJNFAVORIETEN login</title>
 </head>
-<body style="background-image: url('IMG_7086.JPG'); background-size: cover;">
+<body style="background-image: url('inloggen.JPEG'); background-size: cover;">
 <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Wijnfavorieten</a>

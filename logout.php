@@ -29,7 +29,7 @@ if (isset($_SESSION["loggedInUser"])) {
 $logoutMessage = "Je bent uitgelogd. Tot ziens!";
 ?>
 
-<body style="background-image: url('IMG_3200.JPG'); background-size: cover;">
+<body style="background-image: url('uitloggen.JPEG'); background-size: cover;">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
     <div class="container-fluid">

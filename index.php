@@ -12,7 +12,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if (!isset($_GET['kleur'])) {
-    header("Location: /wijnfavorieten/?kleur=rood");
+    header("Location: index.php?kleur=rood");
     exit();
 }
 
@@ -59,24 +59,27 @@ if (!isset($_GET['kleur'])) {
         </button>
 </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                
+            <ul class="navbar-nav mr-auto">            
             </ul>
             <div class="btn-group" role="group" aria-label="Kleuren">
-    <a href="?kleur=rood" class="btn btn-dark btn-md ms-2 me-2 rounded-pill <?php if (isset($_GET['kleur']) && $_GET['kleur'] == 'rood') {
-        echo 'active';
-                                                                            } ?>"><i class="fa-solid fa-wine-glass" style="color:#800000;"></i></a>
-    <a href="?kleur=wit" class="btn btn-dark  btn-md me-2 rounded-pill <?php if (isset($_GET['kleur']) && $_GET['kleur'] == 'wit') { 
-        echo 'active';
-                                                                       } ?>"> <i class="fa-solid fa-wine-glass" style="color:#EEEDC4;"></i></a>
-    <a href="?kleur=rosé" class="btn btn-dark  btn-md me-2 rounded-pill <?php if (isset($_GET['kleur']) && $_GET['kleur'] == 'rosé') { 
-        echo 'active';
-                                                                        } ?>"><i class="fa-solid fa-wine-glass"  style="color:#FFB9B9;"></i></a>
-    <a href="?kleur=mousserend" class="btn btn-dark  btn-md me-2  rounded-pill <?php if (isset($_GET['kleur']) && $_GET['kleur'] == 'mousserend') {
-        echo 'active';
-                                                                               } ?>"><i class="fa-solid fa-wine-glass" style="color:#ffcc66;"></i></a></a>
-<a href='insert.php' class='btn btn-dark btn-md me-2 rounded-pill'> <i class='bi bi-plus-lg'></i></a>
-<a href='logout.php' class='btn btn-dark btn-md me-2 rounded-pill' onclick="return confirm('Weet je zeker dat je wilt uitloggen?')"><i class='fa-solid fa-right-from-bracket'></i></a>
+            <a href="?kleur=rood" class="btn btn-dark btn-md ms-2 me-2 rounded-pill <?php 
+            echo (isset($_GET['kleur']) && $_GET['kleur'] == 'rood') ? 'active' : ''; ?>" title="ROOD">
+    <i class="fa-solid fa-wine-glass" style="color:#800000;"></i>
+</a>
+<a href="?kleur=wit" class="btn btn-dark btn-md me-2 rounded-pill <?php 
+    echo (isset($_GET['kleur']) && $_GET['kleur'] == 'wit') ? 'active' : ''; ?>" title="WIT">
+    <i class="fa-solid fa-wine-glass" style="color:#EEEDC4;"></i>
+</a>
+<a href="?kleur=rosé" class="btn btn-dark btn-md me-2 rounded-pill <?php 
+    echo (isset($_GET['kleur']) && $_GET['kleur'] == 'rosé') ? 'active' : ''; ?>" title="ROSÉ">
+    <i class="fa-solid fa-wine-glass" style="color:#FFB9B9;"></i>
+</a>
+<a href="?kleur=mousserend" class="btn btn-dark btn-md me-2 rounded-pill <?php 
+    echo (isset($_GET['kleur']) && $_GET['kleur'] == 'mousserend') ? 'active' : ''; ?>" title="MOUSSEREND">
+    <i class="fa-solid fa-wine-glass" style="color:#ffcc66;"></i>
+</a>
+<a href='insert.php' class='btn btn-dark btn-md me-2 rounded-pill' title='TOEVOEGEN'> <i class='bi bi-plus-lg'></i></a>
+<a href='logout.php' class='btn btn-dark btn-md me-2 rounded-pill' title='UITLOGGEN' onclick="return confirm('Weet je zeker dat je wilt uitloggen?')"><i class='fa-solid fa-right-from-bracket'></i></a>
 </div>  
 </div>
 </div>
@@ -149,7 +152,7 @@ if (isset($_GET['kleur'])) {
             echo "<td>" . $row["naam"] . "</td>";
             echo "<td>€" . $row["wprijs"] . "</td>";
             echo "<td>" . $row["rating"] . "</td>";
-            echo "<td><a href='detail.php?id=" . $row["id"] . "' class='text-white icon-hover' data-bs-toggle='tooltip' data-bs-placement='top' title='Details' tabindex='0'>";
+            echo "<td><a href='detail.php?id=" . $row["id"] . "' class='text-white icon-hover' title='DETAILS' tabindex='0'>";
             echo "<i class='bi bi-info-circle icon-bold'></i>";
             echo "</a></td>";
             echo "</tr>";

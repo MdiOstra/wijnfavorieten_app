@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
      <link rel="stylesheet" type="text/css" href="styles.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>WIJNFAVORIETEN insert</title>   
+    <title>WIJNFAVORIETEN - toevoegen</title>   
 </head>
 
 <body class="bg-dark">
@@ -146,7 +146,7 @@ if (isset($message)) {
     echo "</div>";
     echo "<script>";
     echo "setTimeout(function() {";
-    echo "window.location.href = 'index.php';";
+    echo "window.location.href = 'index.php?kleur=rood';";
     echo "}, 2000);";
     echo "</script>";
 } elseif (!empty($errors)) {
@@ -183,11 +183,10 @@ if (isset($message)) {
             </ul>
              <div class='btn-group'>
                 <?php
-                echo "<a href='index.php' class='btn btn-md btn-dark me-2 rounded-pill'><i class='fa-solid fa-arrow-rotate-left'></i></a>";
-                echo "<a href='logout.php' class='btn btn-md btn-dark me-2 rounded-pill' onclick=\"return confirm('Weet je zeker dat je wilt uitloggen?')\">";
+                echo "<a href='index.php' class='btn btn-md btn-dark me-2 rounded-pill' title='HOME'><i class='fa-solid fa-arrow-rotate-left'></i></a>";
+                echo "<a href='logout.php' class='btn btn-md btn-dark me-2 rounded-pill' title='UITLOGGEN' onclick=\"return confirm('Weet je zeker dat je wilt uitloggen?')\">";
                 echo "<i class='fa-solid fa-right-from-bracket'></i>";
                 echo "</a>";
-                
                     echo "</form>";
                 
                 ?>

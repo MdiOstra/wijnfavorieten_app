@@ -2,12 +2,10 @@
 session_start(); 
 
 include 'db.inc.php';
-
 if (!isset($_SESSION["loggedInUser"])) {
     header("Location: login.php");
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +19,6 @@ if (!isset($_SESSION["loggedInUser"])) {
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
    <link rel="stylesheet" href="styles.css">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>WIJNFAVORIETEN Detail</title>
 </head>
 <body class="bg-dark">
 
@@ -38,27 +35,21 @@ if (!isset($_SESSION["loggedInUser"])) {
     <span class="navbar-toggler-icon"></span>
 </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <!-- Navbar links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <!-- Add any other navbar links here if needed -->
             </ul>
-
-            <!-- Button group voor knoppen -->
             <div class='btn-group'>
-                <!-- Dynamische inhoud voor bewerken, toevoegen en uitloggen -->
                 <?php
                 if (isset($_GET["id"])) {
                     $wineID = $_GET["id"];
-                    echo "<a href='edit.php?id=$wineID' class='btn btn-md btn-dark text-white me-2 rounded-pill'><i class='fas fa-edit'></i></a>";
+                    echo "<a href='edit.php?id=$wineID' class='btn btn-md btn-dark text-white me-2 rounded-pill' title='AANPASSEN' ><i class='fas fa-edit'></i></a>";
                     echo "<form method='post'>";
                     echo "<input type='hidden' name='wine_id' value='$wineID'>";
-                    echo "<a href='insert.php' class='btn btn-md btn-dark me-2 rounded-pill'> <i class='bi bi-plus-lg'></i></a>";
-                    echo "<a href='index.php' class='btn btn-md btn-dark me-2 rounded-pill'><i class='fa-solid fa-arrow-rotate-left'></i></a>";
-                    echo "<button type='submit' name='delete' class='btn btn-md btn-dark me-2 rounded-pill' onclick=\"return confirm('Weet je zeker dat je deze wijn wilt verwijderen?')\">";
+                    echo "<a href='insert.php' class='btn btn-md btn-dark me-2 rounded-pill' title='TOEVOEGEN'> <i class='bi bi-plus-lg'></i></a>";
+                    echo "<a href='index.php' class='btn btn-md btn-dark me-2 rounded-pill' title='HOME'><i class='fa-solid fa-arrow-rotate-left'></i></a>";
+                    echo "<button type='submit' name='delete' class='btn btn-md btn-dark me-2 rounded-pill' title='DELETE' onclick=\"return confirm('Wijn verwijderen?')\">";
                     echo "<i class='fa-solid fa-trash'></i>";
                     echo "</button>";
-
-                    echo "<a href='logout.php' class='btn btn-md btn-dark me-2 rounded-pill' onclick=\"return confirm('Weet je zeker dat je wilt uitloggen?')\">";
+                    echo "<a href='logout.php' class='btn btn-md btn-dark me-2 rounded-pill' title='UITLOGGEN' onclick=\"return confirm('Weet je zeker dat je wilt uitloggen?')\">";
                     echo "<i class='fa-solid fa-right-from-bracket'></i>";
                     echo "</a>";
                     echo "</form>";
@@ -92,17 +83,17 @@ if (!isset($_SESSION["loggedInUser"])) {
       
         if ($prepared->rowCount() > 0) {
             $wine = $prepared->fetch(PDO::FETCH_ASSOC);
+            $wineName = $wine["naam"];
+            echo "<title>WIJNFAVORIETEN Details - $wineName</title>";
             echo "<div class='card table-bordered table-outer-border mb-2'>"; 
             echo "<div class='row g-0'>";
             echo "<div class='col-lg-4 bg-dark d-flex justify-content-center align-items-center'>";
             echo "<img src='uploads/" . $wine["filename"] . "' class='card-img-top mt-2 rounded-3' alt='Wijnafbeelding' style='width: 240px; height: 320px;'>";
             echo "</div>";
-            // Toon tekst in een kolom 
             echo "<div class='col-lg-8'>";
             echo "<div class='card-body bg-dark text-white'>";
             echo "<h2 class='card-title bg-dark text-white'>" . $wine["naam"] . "</h2>";
             echo "<table class='table table-dark'>";
-            // Tabel met details
             echo "<tr><th style='width: 30%;'>Details</th><th style='width: 70%;'></th></tr>";
             echo "<tr><td>Merk</td><td>" . $wine["merk"] . "</td></tr>";
             echo "<tr><td>Naam</td><td>" . $wine["naam"] . "</td></tr>";
@@ -140,7 +131,7 @@ if (!isset($_SESSION["loggedInUser"])) {
                 unlink($imagePath);
             }
             echo "<p>Wijn met ID $wineID is succesvol verwijderd.</p>";
-            echo "<script>window.location = 'index.php';</script>";
+            echo "<script>window.location = 'index.php?kleur=rood';</script>";
         } else {
             echo "<p>Fout bij het verwijderen van de wijn.</p>";
         }
